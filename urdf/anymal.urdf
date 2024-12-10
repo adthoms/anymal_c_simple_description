@@ -603,11 +603,11 @@
     <!-- joint base HAA -->
     <joint name="base_LF_HAA" type="fixed">
         <parent link="base"/>
-        <child link="LF_HAA"/>
+        <child link="LF_HAA_link"/>
         <origin rpy="2.61799387799 0 0.0" xyz="0.2999 0.104 0.0"/>
     </joint>
     <!-- Drive link -->
-    <link name="LF_HAA">
+    <link name="LF_HAA_link">
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
@@ -622,7 +622,7 @@
     </link>
     <!-- joint Drive output -->
     <joint name="LF_HAA" type="revolute">
-        <parent link="LF_HAA"/>
+        <parent link="LF_HAA_link"/>
         <child link="LF_HIP"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <axis xyz="1 0 0"/>
@@ -660,11 +660,11 @@
     <!-- joint hip HFE -->
     <joint name="LF_hip_fixed_LF_HFE" type="fixed">
         <parent link="LF_hip_fixed"/>
-        <child link="LF_HFE"/>
+        <child link="LF_HFE_link"/>
         <origin rpy="0 0 1.57079632679" xyz="0.0599 0.08381 0.0"/>
     </joint>
     <!-- Drive link -->
-    <link name="LF_HFE">
+    <link name="LF_HFE_link">
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
@@ -685,7 +685,7 @@
     </link>
     <!-- joint Drive output -->
     <joint name="LF_HFE" type="revolute">
-        <parent link="LF_HFE"/>
+        <parent link="LF_HFE_link"/>
         <child link="LF_THIGH"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <axis xyz="1 0 0"/>
@@ -736,11 +736,11 @@
     <!-- joint thigh KFE -->
     <joint name="LF_thigh_fixed_LF_KFE" type="fixed">
         <parent link="LF_thigh_fixed"/>
-        <child link="LF_KFE"/>
+        <child link="LF_KFE_link"/>
         <origin rpy="0 0 1.57079632679" xyz="0.0 0.1003 -0.285"/>
     </joint>
     <!-- Drive link -->
-    <link name="LF_KFE">
+    <link name="LF_KFE_link">
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
@@ -761,7 +761,7 @@
     </link>
     <!-- joint Drive output -->
     <joint name="LF_KFE" type="revolute">
-        <parent link="LF_KFE"/>
+        <parent link="LF_KFE_link"/>
         <child link="LF_SHANK"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <axis xyz="1 0 0"/>
@@ -847,11 +847,11 @@
     <!-- joint base HAA -->
     <joint name="base_RF_HAA" type="fixed">
         <parent link="base"/>
-        <child link="RF_HAA"/>
+        <child link="RF_HAA_link"/>
         <origin rpy="-2.61799387799 0 0.0" xyz="0.2999 -0.104 0.0"/>
     </joint>
     <!-- Drive link -->
-    <link name="RF_HAA">
+    <link name="RF_HAA_link">
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
@@ -866,7 +866,7 @@
     </link>
     <!-- joint Drive output -->
     <joint name="RF_HAA" type="revolute">
-        <parent link="RF_HAA"/>
+        <parent link="RF_HAA_link"/>
         <child link="RF_HIP"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <axis xyz="1 0 0"/>
@@ -904,11 +904,11 @@
     <!-- joint hip HFE -->
     <joint name="RF_hip_fixed_RF_HFE" type="fixed">
         <parent link="RF_hip_fixed"/>
-        <child link="RF_HFE"/>
+        <child link="RF_HFE_link"/>
         <origin rpy="0 0 -1.57079632679" xyz="0.0599 -0.08381 0.0"/>
     </joint>
     <!-- Drive link -->
-    <link name="RF_HFE">
+    <link name="RF_HFE_link">
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
@@ -929,7 +929,7 @@
     </link>
     <!-- joint Drive output -->
     <joint name="RF_HFE" type="revolute">
-        <parent link="RF_HFE"/>
+        <parent link="RF_HFE_link"/>
         <child link="RF_THIGH"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <axis xyz="-1 0 0"/>
@@ -980,11 +980,11 @@
     <!-- joint thigh KFE -->
     <joint name="RF_thigh_fixed_RF_KFE" type="fixed">
         <parent link="RF_thigh_fixed"/>
-        <child link="RF_KFE"/>
+        <child link="RF_KFE_link"/>
         <origin rpy="0 0 -1.57079632679" xyz="0.0 -0.1003 -0.285"/>
     </joint>
     <!-- Drive link -->
-    <link name="RF_KFE">
+    <link name="RF_KFE_link">
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
@@ -1005,7 +1005,7 @@
     </link>
     <!-- joint Drive output -->
     <joint name="RF_KFE" type="revolute">
-        <parent link="RF_KFE"/>
+        <parent link="RF_KFE_link"/>
         <child link="RF_SHANK"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <axis xyz="-1 0 0"/>
@@ -1091,11 +1091,11 @@
     <!-- joint base HAA -->
     <joint name="base_LH_HAA" type="fixed">
         <parent link="base"/>
-        <child link="LH_HAA"/>
+        <child link="LH_HAA_link"/>
         <origin rpy="-2.61799387799 0 -3.14159265359" xyz="-0.2999 0.104 0.0"/>
     </joint>
     <!-- Drive link -->
-    <link name="LH_HAA">
+    <link name="LH_HAA_link">
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
@@ -1110,7 +1110,7 @@
     </link>
     <!-- joint Drive output -->
     <joint name="LH_HAA" type="revolute">
-        <parent link="LH_HAA"/>
+        <parent link="LH_HAA_link"/>
         <child link="LH_HIP"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <axis xyz="-1 0 0"/>
@@ -1148,11 +1148,11 @@
     <!-- joint hip HFE -->
     <joint name="LH_hip_fixed_LH_HFE" type="fixed">
         <parent link="LH_hip_fixed"/>
-        <child link="LH_HFE"/>
+        <child link="LH_HFE_link"/>
         <origin rpy="0 0 1.57079632679" xyz="-0.0599 0.08381 0.0"/>
     </joint>
     <!-- Drive link -->
-    <link name="LH_HFE">
+    <link name="LH_HFE_link">
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
@@ -1173,7 +1173,7 @@
     </link>
     <!-- joint Drive output -->
     <joint name="LH_HFE" type="revolute">
-        <parent link="LH_HFE"/>
+        <parent link="LH_HFE_link"/>
         <child link="LH_THIGH"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <axis xyz="1 0 0"/>
@@ -1224,11 +1224,11 @@
     <!-- joint thigh KFE -->
     <joint name="LH_thigh_fixed_LH_KFE" type="fixed">
         <parent link="LH_thigh_fixed"/>
-        <child link="LH_KFE"/>
+        <child link="LH_KFE_link"/>
         <origin rpy="0 0 1.57079632679" xyz="-0.0 0.1003 -0.285"/>
     </joint>
     <!-- Drive link -->
-    <link name="LH_KFE">
+    <link name="LH_KFE_link">
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
@@ -1249,7 +1249,7 @@
     </link>
     <!-- joint Drive output -->
     <joint name="LH_KFE" type="revolute">
-        <parent link="LH_KFE"/>
+        <parent link="LH_KFE_link"/>
         <child link="LH_SHANK"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <axis xyz="1 0 0"/>
@@ -1335,11 +1335,11 @@
     <!-- joint base HAA -->
     <joint name="base_RH_HAA" type="fixed">
         <parent link="base"/>
-        <child link="RH_HAA"/>
+        <child link="RH_HAA_link"/>
         <origin rpy="2.61799387799 0 -3.14159265359" xyz="-0.2999 -0.104 0.0"/>
     </joint>
     <!-- Drive link -->
-    <link name="RH_HAA">
+    <link name="RH_HAA_link">
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
@@ -1354,7 +1354,7 @@
     </link>
     <!-- joint Drive output -->
     <joint name="RH_HAA" type="revolute">
-        <parent link="RH_HAA"/>
+        <parent link="RH_HAA_link"/>
         <child link="RH_HIP"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <axis xyz="-1 0 0"/>
@@ -1392,11 +1392,11 @@
     <!-- joint hip HFE -->
     <joint name="RH_hip_fixed_RH_HFE" type="fixed">
         <parent link="RH_hip_fixed"/>
-        <child link="RH_HFE"/>
+        <child link="RH_HFE_link"/>
         <origin rpy="0 0 -1.57079632679" xyz="-0.0599 -0.08381 0.0"/>
     </joint>
     <!-- Drive link -->
-    <link name="RH_HFE">
+    <link name="RH_HFE_link">
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
@@ -1417,7 +1417,7 @@
     </link>
     <!-- joint Drive output -->
     <joint name="RH_HFE" type="revolute">
-        <parent link="RH_HFE"/>
+        <parent link="RH_HFE_link"/>
         <child link="RH_THIGH"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <axis xyz="-1 0 0"/>
@@ -1468,11 +1468,11 @@
     <!-- joint thigh KFE -->
     <joint name="RH_thigh_fixed_RH_KFE" type="fixed">
         <parent link="RH_thigh_fixed"/>
-        <child link="RH_KFE"/>
+        <child link="RH_KFE_link"/>
         <origin rpy="0 0 -1.57079632679" xyz="-0.0 -0.1003 -0.285"/>
     </joint>
     <!-- Drive link -->
-    <link name="RH_KFE">
+    <link name="RH_KFE_link">
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
@@ -1493,7 +1493,7 @@
     </link>
     <!-- joint Drive output -->
     <joint name="RH_KFE" type="revolute">
-        <parent link="RH_KFE"/>
+        <parent link="RH_KFE_link"/>
         <child link="RH_SHANK"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <axis xyz="-1 0 0"/>
@@ -1723,4 +1723,3 @@
       </plugin>
    </gazebo>
 </robot>
-
