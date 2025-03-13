@@ -421,13 +421,27 @@
             <inertia ixx="0.00063283" ixy="0.0" ixz="3.45e-07" iyy="0.00110971" iyz="0.0" izz="0.00171883"/>
         </inertial>
     </link>
+    <!-- IMU Gazebo Plug-in -->
+    <gazebo>
+      <plugin filename="libhector_gazebo_ros_imu.so" name="imu_controller">
+        <updateRate>400.0</updateRate>
+        <bodyName>imu_link</bodyName>
+        <topicName>imu/data</topicName>
+        <accelDrift>1e-15 1e-15 1e-15</accelDrift>
+        <accelGaussianNoise>1e-15 1e-15 1e-15</accelGaussianNoise>
+        <rateDrift>1e-15 1e-15 1e-15</rateDrift>
+        <rateGaussianNoise>1e-15 1e-15 1e-15</rateGaussianNoise>
+        <headingDrift>1e-15</headingDrift>
+        <headingGaussianNoise>1e-15</headingGaussianNoise>
+      </plugin>
+    </gazebo>
+    <!-- IMU link -->
     <link name="imu_link">
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0.005"/>
             <geometry>
                 <box size="0.024 0.024 0.01"/>
             </geometry>
-            <material name="orange"/>
         </visual>
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0.005"/>
@@ -441,10 +455,11 @@
             <inertia ixx="5.63333333333e-07" ixy="0.0" ixz="0.0" iyy="9.6e-07" iyz="0.0" izz="5.63333333333e-07"/>
         </inertial>
     </link>
+    <!-- IMU joint -->
     <joint name="imu_joint" type="fixed">
         <parent link="base"/>
         <child link="imu_link"/>
-        <origin rpy="0.0 0.0 1.57079632679" xyz="0.2488 0.00835 0.04628"/>
+        <origin rpy="0.0 0.0 0.0" xyz="0.2488 0.00835 0.04628"/>
     </joint>
     <!-- Camera joint -->
     <!-- Is located between the two back screw holes at ground level. -->
@@ -560,7 +575,47 @@
         <child link="lidar_cage"/>
         <origin rpy="0 0 0" xyz="-0.364 0.0 0.0735"/>
     </joint>
-    <!-- Velodyne cage link -->
+    <!-- LiDAR Gazebo Plug-in -->
+    <gazebo reference="lidar_link">
+      <sensor name="velodyne" type="ray">
+        <pose>0 0 0 0 0 0</pose>
+        <visualize>false</visualize>
+        <update_rate>10</update_rate>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>3600</samples>
+              <resolution>1</resolution>
+              <min_angle>-3.141592653589793</min_angle>
+              <max_angle>+3.141592653589793</max_angle>
+            </horizontal>
+            <vertical>
+              <samples>16</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.261799387799149</min_angle>
+              <max_angle>+0.261799387799149</max_angle>
+            </vertical>
+          </scan>
+          <range>
+            <min>0.3</min>
+            <max>100</max>
+            <resolution>1e-15</resolution>
+          </range>
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.0</stddev>
+          </noise>
+        </ray>
+        <plugin filename="libgazebo_ros_velodyne_laser.so" name="gazebo_ros_laser_controller">
+          <topicName>velodyne_points</topicName>
+          <frameName>lidar_link</frameName>
+          <min_range>0.9</min_range>
+          <max_range>100</max_range>
+          <gaussianNoise>1e-15</gaussianNoise>
+        </plugin>
+      </sensor>
+    </gazebo>
     <link name="lidar_cage">
         <visual>
             <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
@@ -583,11 +638,11 @@
     <!-- parent to sensor joint -->
     <joint name="lidar_cage_to_lidar" type="fixed">
         <parent link="lidar_cage"/>
-        <child link="lidar"/>
-        <origin rpy="0.0 0.0 -1.57079632679" xyz="0.0 0.0 0.0687"/>
+        <child link="lidar_link"/>
+        <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0687"/>
     </joint>
-    <!-- Velodyne sensor link -->
-    <link name="lidar">
+    <!-- LiDAR link -->
+    <link name="lidar_link">
         <inertial>
             <origin rpy="0.0 0.0 0.0" xyz="-0.012 0.001 -0.008"/>
             <mass value="0.695"/>
